@@ -8,7 +8,7 @@ namespace FilmesApi.Profiles
     {
         public SessaoProfile()
         {
-            CreateMap<CreateSessaoDto, Sessao>();
+            CreateMap<CreateSessaoDto, Sessao>().ForMember(sessaoDto => sessaoDto.Filme, option => option.MapFrom(sessao => sessao.FilmeId));
             CreateMap<Sessao, ReadSessaoDto>();
         }
     }
